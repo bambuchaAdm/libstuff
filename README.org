@@ -1,0 +1,7 @@
+* libstuff
+
+Primitives and standard stuff (bearings, bolts, screw, etc) for openscad.
+
+** WARNING
+
+Not all sizes are implmented.
