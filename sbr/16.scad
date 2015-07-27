@@ -40,9 +40,8 @@ module sbr16_mount_position(offset = [0,0,0]) {
 }
 
 
-
-//translate([-340/2,0,0])
+translate([-340/2,0,0])
 sbr16_rail(340){ imbus(M4,10); } 
 
-sbr16_mount_position([280*$t,0,0])
+sbr16_mount_position([50,0,0])
 	sbr16_bearing();
