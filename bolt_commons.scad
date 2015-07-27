@@ -2,11 +2,11 @@
 
 M3 = 3;
 M4 = 4;
+M5 = 5;
 M6 = 6;
+M7 = 7;
 M8 = 8;
 
-function searchForHead(type, headTable) = 
-	headTable[search(type, headTable, 1)[0]][1]; 
-
+bolt_color="purple";
 
 
