@@ -1,28 +1,25 @@
 // Author bambucha
 // exported: bearing
 
-module BearingPlot(height, inner_radius, outer_radius ){
-	difference() {
-		cylinder(d = outer_radius, h = height)	;
-		cylinder(d = inner_radius, h = height);
-	}
-}
+include <utils.scad>
 
-module bearingSwitch(type){
-	if(type == 624){
-		BearingPlot(5,4,13);
-	}
-	if(type == 608){
-		BearingPlot(7, 8, 22);
-	}
-}
+innerIndex = 0;
+outerIndex = 1;
+heightIndex = 2;
+
+bearingParameters = [
+	[624, [4,13,5]],
+	[608, [8,22,7]]
+];
 
 module bearing(type, forDifference=false){
-	if(forDifference){
-		hull(){ bearingSwitch(type); }
-	} else {
-		bearingSwitch(type);
-	}
+	params = searchFor(type, bearingParameters);
+	difference(){
+		cylinder(d = params[outerIndex], h = params[heightIndex])	;
+		if(!forDifference){
+			cylinder(d = params[innerIndex], h = params[heightIndex]);
+		}
+	}	
 }
 
 bearing(624);
